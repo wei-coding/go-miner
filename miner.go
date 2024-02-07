@@ -41,12 +41,12 @@ func work() {
 		cmd := exec.Command("vcgencmd", "measure_temp")
 		tempBuf, err := cmd.CombinedOutput()
 		var temp string
-		if (err!= nil) {
+		if (err == nil) {
 			temp = string(tempBuf)
 			temp = strings.Replace(temp, "temp=", "", -1)
 			temp = strings.Replace(temp, "'C\n", "", -1)
 		} else {
-			temp = string()
+			temp = ""
 		}
 
 		// Requesting a job.
